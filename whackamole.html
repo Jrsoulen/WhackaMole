@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="style2.css" rel="stylesheet" type="text/css">
+
+<head>
+<meta charset="utf-8"/>
+<script type="text/javascript">
+//is the game running?
+game = true
+//What is the score
+var score = 0
+//When we land a smackerooni
+function smack(i)
+	{
+	<!--If the game ends, clicking won't work-->
+	if (game === false) return;
+	<!--If clicked, the mole disappears-->
+	document.getElementById('i').style = 'display:none';
+	<!--On click the mole disappears we get a point!-->
+		score++;
+	document.getElementById('scoreboard').innerHTML="Your score is " + score +"!";
+
+	}
+	
+function goal()
+	{
+	score++;
+	document.getElementById('scoreboard').innerHTML="Your score is " + score +"!";
+	}
+/*
+setInterval(MoleMaker, 1000);
+
+function myTimer() {
+    document.getElementById("demo").innerHTML = Date();
+
+function gamestart()
+	{
+	for (i = 0; i < 9; i++)
+		{
+		document.getElementById(i).style = 'display:none';
+		}
+	}
+gamestart()
+*/
+</script>
+
+</head>
+<!--Welcome to Hell-->
+<h1 style = "text-align:center;">Welcome to Hell</h1>
+<!--This Draws the score-->
+<p id="scoreboard">Your score is 0! <p>
+<!--This is my gameboard-->
+<div class="wrapper">
+    <div class="gameboard">
+		<!--Each of these are a mole to be whacked-->
+        <div  class="middle">			
+			<img id="0" src="mole.png" alt="Well drawn mole" onclick="smack(0);">
+		</div>
+        <div class="middle">
+			<img id="1" src="mole.png" alt="Well drawn mole" onclick="smack(1);">
+		</div>
+        <div class="middle">
+			<img id="2" src="mole.png" alt="Well drawn mole" onclick="smack(2);">
+		</div>
+        <div class="middle">
+			<img id="3" src="mole.png" alt="Well drawn mole" onclick="smack(3);">
+		</div>
+        <div class="middle">
+			<img id="4" src="mole.png" alt="Well drawn mole" onclick="smack(4);">
+		</div>
+        <div class="middle">
+			<img id="5" src="mole.png" alt="Well drawn mole" onclick="smack(5);">
+		</div>
+        <div class="middle">
+			<img id="6" src="mole.png" alt="Well drawn mole" onclick="smack(6);">
+		</div>
+        <div class="middle">
+			<img id="7" src="mole.png" alt="Well drawn mole" onclick="smack(7);">
+		</div>
+        <div class="middle">
+			<img id="8" src="mole.png" alt="Well drawn mole" onclick="smack(8);">
+		</div>
+    </div>
+    <div class="button">
+		<!--Haxxorz game reset button-->
+        <button onclick="location.reload();">New Game</button>
+        <button onclick="document.getElementById('0').style = 'display:block';">Put that first guy back please.</button>
+    </div>
+</div>
+
+
+</html>
