@@ -29,14 +29,25 @@ function goal()
 	document.getElementById('scoreboard').innerHTML="Your score is " + score +"!";
 	}
 
-setInterval(MoleMaker, 1000-(score*10));
-
 function MoleMaker() 
 	{
-	var id = "" + Math.floor(Math.random() * 8) + ""; 
+	var id = "" + Math.floor(Math.random() * 9) + "";
     document.getElementById(id).style = 'display:block';
+	store = id;
+	
+	//setTimeout(function(){
+	//		document.getElementById(id).style = 'display:none';
+	//	}
+	//,2000);
+	
+	setTimeout(function(){ MissedIt(id);}, 3000);
+	setTimeout(function(){ MoleMaker();}, 2000-(score*30));
 	}
 
+function MissedIt(id)
+	{
+	document.getElementById(id).style = 'display:none';
+	}
 </script>
 
 </head>
@@ -79,7 +90,7 @@ function MoleMaker()
     <div class="button">
 		<!--Haxxorz game reset button-->
         <button onclick="location.reload();">New Game</button>
-        <button onclick="document.getElementById('0').style = 'display:block';">Put that first guy back please.</button>
+        <button onclick="setTimeout(MoleMaker, 2000);">Begin!</button>
     </div>
 </div>
 
