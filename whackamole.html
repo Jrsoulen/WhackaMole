@@ -8,16 +8,17 @@
 //is the game running?
 game = true
 //What is the score
-var score = 0
+score = 0
 //When we land a smackerooni
 function smack(i)
 	{
+	var id = ""+i+""
 	<!--If the game ends, clicking won't work-->
 	if (game === false) return;
 	<!--If clicked, the mole disappears-->
-	document.getElementById('i').style = 'display:none';
+	document.getElementById(id).style = 'display:none'; //'2'
 	<!--On click the mole disappears we get a point!-->
-		score++;
+	score++;
 	document.getElementById('scoreboard').innerHTML="Your score is " + score +"!";
 
 	}
@@ -27,21 +28,15 @@ function goal()
 	score++;
 	document.getElementById('scoreboard').innerHTML="Your score is " + score +"!";
 	}
-/*
-setInterval(MoleMaker, 1000);
 
-function myTimer() {
-    document.getElementById("demo").innerHTML = Date();
+setInterval(MoleMaker, 1000-(score*10));
 
-function gamestart()
+function MoleMaker() 
 	{
-	for (i = 0; i < 9; i++)
-		{
-		document.getElementById(i).style = 'display:none';
-		}
+	var id = "" + Math.floor(Math.random() * 8) + ""; 
+    document.getElementById(id).style = 'display:block';
 	}
-gamestart()
-*/
+
 </script>
 
 </head>
@@ -54,31 +49,31 @@ gamestart()
     <div class="gameboard">
 		<!--Each of these are a mole to be whacked-->
         <div  class="middle">			
-			<img id="0" src="mole.png" alt="Well drawn mole" onclick="smack(0);">
+			<img class="mole" id="0" src="mole.png" alt="Well drawn mole" onclick="smack(0);">
 		</div>
         <div class="middle">
-			<img id="1" src="mole.png" alt="Well drawn mole" onclick="smack(1);">
+			<img class="mole" id="1" src="mole.png" alt="Well drawn mole" onclick="smack(1);">
 		</div>
         <div class="middle">
-			<img id="2" src="mole.png" alt="Well drawn mole" onclick="smack(2);">
+			<img class="mole" id="2" src="mole.png" alt="Well drawn mole" onclick="smack(2);">
 		</div>
         <div class="middle">
-			<img id="3" src="mole.png" alt="Well drawn mole" onclick="smack(3);">
+			<img class="mole" id="3" src="mole.png" alt="Well drawn mole" onclick="smack(3);">
 		</div>
         <div class="middle">
-			<img id="4" src="mole.png" alt="Well drawn mole" onclick="smack(4);">
+			<img class="mole" id="4" src="mole.png" alt="Well drawn mole" onclick="smack(4);">
 		</div>
         <div class="middle">
-			<img id="5" src="mole.png" alt="Well drawn mole" onclick="smack(5);">
+			<img class="mole" id="5" src="mole.png" alt="Well drawn mole" onclick="smack(5);">
 		</div>
         <div class="middle">
-			<img id="6" src="mole.png" alt="Well drawn mole" onclick="smack(6);">
+			<img class="mole" id="6" src="mole.png" alt="Well drawn mole" onclick="smack(6);">
 		</div>
         <div class="middle">
-			<img id="7" src="mole.png" alt="Well drawn mole" onclick="smack(7);">
+			<img class="mole" id="7" src="mole.png" alt="Well drawn mole" onclick="smack(7);">
 		</div>
         <div class="middle">
-			<img id="8" src="mole.png" alt="Well drawn mole" onclick="smack(8);">
+			<img class="mole" id="8" src="mole.png" alt="Well drawn mole" onclick="smack(8);">
 		</div>
     </div>
     <div class="button">
