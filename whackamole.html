@@ -3,12 +3,14 @@
 <link href="style2.css" rel="stylesheet" type="text/css">
 
 <head>
+<title> Hell. </title>
 <meta charset="utf-8"/>
 <script type="text/javascript">
 //is the game running?
 game = true
 //What is the score
 score = 0
+lives = 5
 //When we land a smackerooni
 function smack(i)
 	{
@@ -31,6 +33,7 @@ function goal()
 
 function MoleMaker() 
 	{
+	if(game == false){return}
 	var id = "" + Math.floor(Math.random() * 9) + "";
     document.getElementById(id).style = 'display:block';
 	store = id;
@@ -46,15 +49,27 @@ function MoleMaker()
 
 function MissedIt(id)
 	{
+	if(game == false){return}
+	if (document.getElementById(id).style.display == "block")
+		{
+		lives = lives-1;
+		}
 	document.getElementById(id).style = 'display:none';
+	document.getElementById('life').innerHTML="Your have " + lives +" lives left!";
+	if (lives < 1)
+		{
+		game = false;
+		document.getElementById('life').innerHTML="You are dead.";
+		}
 	}
 </script>
 
 </head>
 <!--Welcome to Hell-->
-<h1 style = "text-align:center;">Welcome to Hell</h1>
 <!--This Draws the score-->
-<p id="scoreboard">Your score is 0! <p>
+<h1 style = "text-align:center;">Welcome to Hell</h1>
+<p id="scoreboard">Your score is 0! </p>
+<p id="life">You have 5 lives left! </p>
 <!--This is my gameboard-->
 <div class="wrapper">
     <div class="gameboard">
@@ -93,6 +108,4 @@ function MissedIt(id)
         <button onclick="setTimeout(MoleMaker, 2000);">Begin!</button>
     </div>
 </div>
-
-
 </html>

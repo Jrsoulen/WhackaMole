@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="style2.css" rel="stylesheet" type="text/css">
+
+<head>
+	<title>Whack-a-mole</title>
+	<meta charset="utf-8"/>
+	<script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	score = 0;
+	game = true;
+	lives = 5;
+	for(var i=0; i<9; i++)
+		{
+		console.log(i);
+		$('#board').append('<div class="middle"><img class="mole" id="'+i+'" src="mole.png" alt="Well drawn mole";"></div>');
+		$("#"+i).click(function (){
+			if (game == false){ return;}
+			console.log(event.target.id);
+			$("#"+event.target.id).css({"display": "none"});
+			score++;
+			$('#scoreboard').html("Your score is " + score +"!");
+		});
+		}
+	function MoleMaker(){
+		if (game == false) {return;}
+		var mole = Math.floor(Math.random() * 9);
+		$("#"+mole).css({"display":"block"});
+		setTimeout(function(){ MoleMaker();}, 2000-(score*30));
+		}
+
+	$('#begin').click(function(){
+		setTimeout(function(){MoleMaker();}, 2000);
+	})
+});
+</script>
+</head>
+<body>
+<h1 style = "text-align:center;">Welcome to Hell</h1>
+<p id="scoreboard">Your score is 0! </p>
+<p id="life">You have 5 lives left! </p>
+<button onclick="location.reload();">New Game</button>
+<button id="begin">Begin!</button>
+<div class="wrapper">
+    <div class="gameboard" id="board">
+</body>
+</html>
